@@ -1,0 +1,182 @@
+{
+  "microserviceId" : "6a979875ceef854e3acf7f8d",
+  "mocks" : [ {
+    "id" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+    "microserviceId" : "6a979875ceef854e3acf7f8d",
+    "specMetadataId" : "6a97988840e8243f64aac0bb",
+    "apiSpecName" : "Hotel Booking API",
+    "name" : "mock-hotel-booking-api",
+    "mockServiceName" : "mock-hotel-booking-api",
+    "mockServerUrl" : "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-ddc385d6",
+    "responseLatencyMs" : 0,
+    "mockUrl" : "mock-ddc385d6",
+    "isPrivate" : true,
+    "delayMs" : 0,
+    "requestCount" : 0,
+    "createdAt" : "2026-09-02T03:31:29.904Z",
+    "updatedAt" : "2026-09-02T03:31:29.912Z",
+    "endpoints" : [ {
+      "id" : "42ece415-9dd6-4ea0-8b01-dfe871569510",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/bookings",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"guestId\":\"string\",\"roomType\":\"string\",\"roomNumber\":\"string\",\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\",\"totalPriceCents\":0,\"status\":\"CONFIRMED\",\"numberOfGuests\":0,\"specialRequests\":\"string\",\"bookedAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"guestId\":\"string\",\"roomType\":\"STANDARD\",\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\",\"numberOfGuests\":1,\"specialRequests\":\"string\",\"paymentMethod\":\"CREDIT_CARD\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.946Z",
+      "updatedAt" : "2026-09-02T03:31:29.946Z"
+    }, {
+      "id" : "b9036b62-8cbe-43b8-98ea-8044b937c939",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/bookings/{bookingId}",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"guestId\":\"string\",\"roomType\":\"string\",\"roomNumber\":\"string\",\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\",\"totalPriceCents\":0,\"status\":\"CONFIRMED\",\"numberOfGuests\":0,\"specialRequests\":\"string\",\"bookedAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.955Z",
+      "updatedAt" : "2026-09-02T03:31:29.956Z"
+    }, {
+      "id" : "d0515649-f3db-422a-9c30-245e902a2ed3",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/bookings/{bookingId}",
+      "method" : "PUT",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"guestId\":\"string\",\"roomType\":\"string\",\"roomNumber\":\"string\",\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\",\"totalPriceCents\":0,\"status\":\"CONFIRMED\",\"numberOfGuests\":0,\"specialRequests\":\"string\",\"bookedAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.967Z",
+      "updatedAt" : "2026-09-02T03:31:29.969Z"
+    }, {
+      "id" : "a7b5d05c-ef2f-4c69-9893-bf1aa5426573",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/bookings/{bookingId}/cancel",
+      "method" : "POST",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"bookingId\":\"string\",\"status\":\"CANCELLED\",\"refundAmountCents\":0,\"refundPercentage\":0,\"cancelledAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"reason\":\"string\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.978Z",
+      "updatedAt" : "2026-09-02T03:31:29.978Z"
+    }, {
+      "id" : "9d3f6c76-7489-43bf-a483-c418f5765deb",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/checkin",
+      "method" : "POST",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"bookingId\":\"string\",\"roomNumber\":\"string\",\"checkInTime\":\"2024-01-01T00:00:00Z\",\"keyCardIssued\":false,\"staffName\":\"string\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"bookingId\":\"string\",\"actualGuests\":0,\"notes\":\"string\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:30.008Z",
+      "updatedAt" : "2026-09-02T03:31:30.008Z"
+    }, {
+      "id" : "0eccd5c0-2c90-473c-a2b7-99c11f4f9895",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/checkout",
+      "method" : "POST",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"bookingId\":\"string\",\"guestId\":\"string\",\"totalNights\":0,\"roomPriceCents\":0,\"extraChargesCents\":0,\"totalBillCents\":0,\"checkOutTime\":\"2024-01-01T00:00:00Z\",\"feedbackRating\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"bookingId\":\"string\",\"extraChargesCents\":0,\"feedbackRating\":0}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:30.017Z",
+      "updatedAt" : "2026-09-02T03:31:30.017Z"
+    }, {
+      "id" : "c81f5d64-2561-427e-95d4-fef2582b0158",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/guests",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"fullName\":\"string\",\"email\":\"string\",\"phone\":\"string\",\"address\":\"string\",\"idProofType\":\"PASSPORT\",\"idProofNumber\":\"string\",\"totalStays\":0,\"loyaltyPoints\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"fullName\":\"string\",\"email\":\"user@example.com\",\"phone\":\"string\",\"address\":\"string\",\"idProofType\":\"PASSPORT\",\"idProofNumber\":\"string\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.986Z",
+      "updatedAt" : "2026-09-02T03:31:29.987Z"
+    }, {
+      "id" : "50cc568b-82de-47ca-a5da-4ed1e2836d50",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/guests/{guestId}/bookings",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "[{\"id\":\"string\",\"guestId\":\"string\",\"roomType\":\"string\",\"roomNumber\":\"string\",\"checkInDate\":\"2024-01-01\",\"checkOutDate\":\"2024-01-01\",\"totalPriceCents\":0,\"status\":\"CONFIRMED\",\"numberOfGuests\":0,\"specialRequests\":\"string\",\"bookedAt\":\"2024-01-01T00:00:00Z\"}]",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.999Z",
+      "updatedAt" : "2026-09-02T03:31:30Z"
+    }, {
+      "id" : "a898e14c-10e9-4c2d-832d-7040bd1fda55",
+      "mockId" : "7dd01e03-aa13-414b-8fea-e9d2f974163f",
+      "path" : "/rooms",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "[{\"id\":\"string\",\"roomType\":\"STANDARD\",\"maxCapacity\":0,\"basePriceCents\":0,\"availableCount\":0,\"amenities\":[\"string\"]}]",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T03:31:29.934Z",
+      "updatedAt" : "2026-09-02T03:31:29.936Z"
+    } ]
+  } ]
+}

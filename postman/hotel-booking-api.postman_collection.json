@@ -1,0 +1,299 @@
+{
+  "info" : {
+    "name" : "hotel-booking-api Postman Collection",
+    "description" : "A complete API for managing hotel room bookings, guest check-ins/check-outs, and real-time room availability across multiple room types (Standard, Deluxe, Suite). Includes dynamic pricing, guest profile management, and cancellation policies.\n\n\nOpenAPI version: 1.0.0",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth" : {
+    "type" : "bearer",
+    "bearer" : [ {
+      "key" : "token",
+      "value" : "{{accessToken}}",
+      "type" : "string"
+    } ]
+  },
+  "variable" : [ {
+    "key" : "baseUrl",
+    "value" : "https://api.hotel.example.com/v1",
+    "type" : "string",
+    "description" : "Override with the base URL of the deployed Apigee proxy."
+  }, {
+    "key" : "accessToken",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "roomType",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by specific room category"
+  }, {
+    "key" : "minCapacity",
+    "value" : "",
+    "type" : "string",
+    "description" : "Minimum number of guests the room can accommodate"
+  }, {
+    "key" : "checkInDate",
+    "value" : "",
+    "type" : "string",
+    "description" : "Check-in date to verify availability (YYYY-MM-DD)"
+  }, {
+    "key" : "checkOutDate",
+    "value" : "",
+    "type" : "string",
+    "description" : "Check-out date to verify availability (YYYY-MM-DD)"
+  }, {
+    "key" : "bookingId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Unique ID of the booking"
+  }, {
+    "key" : "guestId",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "status",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by booking status"
+  } ],
+  "item" : [ {
+    "name" : "List all rooms with availability filters",
+    "request" : {
+      "method" : "GET",
+      "description" : "List all rooms with availability filters\n\nResponses:\n- 200: List of available room types",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/rooms?roomType={{roomType}}&minCapacity={{minCapacity}}&checkInDate={{checkInDate}}&checkOutDate={{checkOutDate}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "rooms" ],
+        "query" : [ {
+          "key" : "roomType",
+          "value" : "{{roomType}}",
+          "disabled" : true,
+          "description" : "Filter by specific room category"
+        }, {
+          "key" : "minCapacity",
+          "value" : "{{minCapacity}}",
+          "disabled" : true,
+          "description" : "Minimum number of guests the room can accommodate"
+        }, {
+          "key" : "checkInDate",
+          "value" : "{{checkInDate}}",
+          "disabled" : true,
+          "description" : "Check-in date to verify availability (YYYY-MM-DD)"
+        }, {
+          "key" : "checkOutDate",
+          "value" : "{{checkOutDate}}",
+          "disabled" : true,
+          "description" : "Check-out date to verify availability (YYYY-MM-DD)"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Create a new room booking",
+    "request" : {
+      "method" : "POST",
+      "description" : "Create a new room booking\n\nResponses:\n- 201: Booking successfully created\n- 400: Rooms not available for the selected dates",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/bookings",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "bookings" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Retrieve booking details by ID",
+    "request" : {
+      "method" : "GET",
+      "description" : "Retrieve booking details by ID\n\nResponses:\n- 200: Booking found\n- 404: Booking not found",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/bookings/:bookingId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "bookings", ":bookingId" ],
+        "variable" : [ {
+          "key" : "bookingId",
+          "value" : "{{bookingId}}",
+          "description" : "Unique ID of the booking"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Modify check-in/check-out dates",
+    "request" : {
+      "method" : "PUT",
+      "description" : "Modify check-in/check-out dates\n\nResponses:\n- 200: Booking updated successfully",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/bookings/:bookingId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "bookings", ":bookingId" ],
+        "variable" : [ {
+          "key" : "bookingId",
+          "value" : "{{bookingId}}"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Cancel an existing booking",
+    "request" : {
+      "method" : "POST",
+      "description" : "Cancel an existing booking\n\nResponses:\n- 200: Booking cancelled successfully",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/bookings/:bookingId/cancel",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "bookings", ":bookingId", "cancel" ],
+        "variable" : [ {
+          "key" : "bookingId",
+          "value" : "{{bookingId}}"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Register a new guest profile",
+    "request" : {
+      "method" : "POST",
+      "description" : "Register a new guest profile\n\nResponses:\n- 201: Guest registered successfully",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/guests",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "guests" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get all bookings for a specific guest",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get all bookings for a specific guest\n\nResponses:\n- 200: Booking history retrieved",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/guests/:guestId/bookings?status={{status}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "guests", ":guestId", "bookings" ],
+        "query" : [ {
+          "key" : "status",
+          "value" : "{{status}}",
+          "disabled" : true,
+          "description" : "Filter by booking status"
+        } ],
+        "variable" : [ {
+          "key" : "guestId",
+          "value" : "{{guestId}}"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Check-in a guest",
+    "request" : {
+      "method" : "POST",
+      "description" : "Check-in a guest\n\nResponses:\n- 200: Check-in successful",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/checkin",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "checkin" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Check-out and generate final bill",
+    "request" : {
+      "method" : "POST",
+      "description" : "Check-out and generate final bill\n\nResponses:\n- 200: Check-out successful with final bill",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/checkout",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "checkout" ]
+      }
+    },
+    "response" : [ ]
+  } ]
+}
